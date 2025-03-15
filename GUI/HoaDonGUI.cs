@@ -181,6 +181,9 @@ namespace GUI
                 MessageBox.Show("Vui lòng chọn hóa đơn để sửa");
                 return;
             }
+            // Lưu lại chỉ số của hàng được chọn
+            int selectedRowIndex = dgvHoaDon.SelectedRows[0].Index;
+
             HoaDonDTO hoaDonDTO = new HoaDonDTO();
             hoaDonDTO.MaHoaDon = int.Parse(dgvHoaDon.SelectedRows[0].Cells[0].Value.ToString());
             hoaDonDTO.TenKhachHang = dgvHoaDon.SelectedRows[0].Cells[1].Value.ToString();
@@ -200,6 +203,13 @@ namespace GUI
             HoaDonGUI_Sua hoaDonGUI_Sua = new HoaDonGUI_Sua(hoaDonDTO);
             hoaDonGUI_Sua.ShowDialog();
             HoaDonGUI_Load(sender, e);
+
+            // Chọn lại hàng vừa sửa
+            if (selectedRowIndex >= 0 && selectedRowIndex < dgvHoaDon.Rows.Count)
+            {
+                dgvHoaDon.Rows[selectedRowIndex].Selected = true;
+                dgvHoaDon.FirstDisplayedScrollingRowIndex = selectedRowIndex;
+            }
         }
 
         private void btnXuatHoaDon_Click_1(object sender, EventArgs e)

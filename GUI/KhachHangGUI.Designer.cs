@@ -33,6 +33,7 @@ namespace GUI
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnLichSuTieuThuNuoc = new System.Windows.Forms.Button();
+            this.btnXuatDSKhachHang = new System.Windows.Forms.Button();
             this.btnTimKiem = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
@@ -59,6 +60,7 @@ namespace GUI
             // panel1
             // 
             this.panel1.Controls.Add(this.btnLichSuTieuThuNuoc);
+            this.panel1.Controls.Add(this.btnXuatDSKhachHang);
             this.panel1.Controls.Add(this.btnTimKiem);
             this.panel1.Controls.Add(this.btnXoa);
             this.panel1.Controls.Add(this.btnSua);
@@ -76,23 +78,34 @@ namespace GUI
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1330, 212);
+            this.panel1.Size = new System.Drawing.Size(1219, 204);
             this.panel1.TabIndex = 0;
             // 
             // btnLichSuTieuThuNuoc
             // 
             this.btnLichSuTieuThuNuoc.AutoSize = true;
-            this.btnLichSuTieuThuNuoc.Location = new System.Drawing.Point(1003, 172);
+            this.btnLichSuTieuThuNuoc.Location = new System.Drawing.Point(888, 166);
             this.btnLichSuTieuThuNuoc.Name = "btnLichSuTieuThuNuoc";
             this.btnLichSuTieuThuNuoc.Size = new System.Drawing.Size(217, 34);
             this.btnLichSuTieuThuNuoc.TabIndex = 13;
             this.btnLichSuTieuThuNuoc.Text = "Lịch sửa tiêu thụ nước";
             this.btnLichSuTieuThuNuoc.UseVisualStyleBackColor = true;
+            this.btnLichSuTieuThuNuoc.Click += new System.EventHandler(this.btnLichSuTieuThuNuoc_Click);
+            // 
+            // btnXuatDSKhachHang
+            // 
+            this.btnXuatDSKhachHang.AutoSize = true;
+            this.btnXuatDSKhachHang.Location = new System.Drawing.Point(1106, 166);
+            this.btnXuatDSKhachHang.Name = "btnXuatDSKhachHang";
+            this.btnXuatDSKhachHang.Size = new System.Drawing.Size(92, 34);
+            this.btnXuatDSKhachHang.TabIndex = 13;
+            this.btnXuatDSKhachHang.Text = "Xuất DS";
+            this.btnXuatDSKhachHang.UseVisualStyleBackColor = true;
             // 
             // btnTimKiem
             // 
             this.btnTimKiem.AutoSize = true;
-            this.btnTimKiem.Location = new System.Drawing.Point(884, 172);
+            this.btnTimKiem.Location = new System.Drawing.Point(779, 166);
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.Size = new System.Drawing.Size(104, 34);
             this.btnTimKiem.TabIndex = 13;
@@ -102,60 +115,63 @@ namespace GUI
             // btnXoa
             // 
             this.btnXoa.AutoSize = true;
-            this.btnXoa.Location = new System.Drawing.Point(779, 172);
+            this.btnXoa.Location = new System.Drawing.Point(683, 166);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(89, 34);
+            this.btnXoa.Size = new System.Drawing.Size(82, 34);
             this.btnXoa.TabIndex = 13;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnSua
             // 
             this.btnSua.AutoSize = true;
-            this.btnSua.Location = new System.Drawing.Point(670, 172);
+            this.btnSua.Location = new System.Drawing.Point(583, 166);
             this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(89, 34);
+            this.btnSua.Size = new System.Drawing.Size(82, 34);
             this.btnSua.TabIndex = 13;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnThem
             // 
             this.btnThem.AutoSize = true;
-            this.btnThem.Location = new System.Drawing.Point(564, 172);
+            this.btnThem.Location = new System.Drawing.Point(486, 166);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(89, 34);
+            this.btnThem.Size = new System.Drawing.Size(82, 34);
             this.btnThem.TabIndex = 13;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // dtpNgayDangKy
             // 
             this.dtpNgayDangKy.CustomFormat = "dd/MM/yyyy";
             this.dtpNgayDangKy.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpNgayDangKy.Location = new System.Drawing.Point(880, 66);
+            this.dtpNgayDangKy.Location = new System.Drawing.Point(759, 70);
             this.dtpNgayDangKy.Name = "dtpNgayDangKy";
-            this.dtpNgayDangKy.Size = new System.Drawing.Size(162, 32);
+            this.dtpNgayDangKy.Size = new System.Drawing.Size(149, 32);
             this.dtpNgayDangKy.TabIndex = 12;
             // 
             // txtSoDienThoai
             // 
-            this.txtSoDienThoai.Location = new System.Drawing.Point(880, 12);
+            this.txtSoDienThoai.Location = new System.Drawing.Point(759, 18);
             this.txtSoDienThoai.Name = "txtSoDienThoai";
-            this.txtSoDienThoai.Size = new System.Drawing.Size(306, 32);
+            this.txtSoDienThoai.Size = new System.Drawing.Size(281, 32);
             this.txtSoDienThoai.TabIndex = 8;
             // 
             // txtDiaChi
             // 
-            this.txtDiaChi.Location = new System.Drawing.Point(338, 66);
+            this.txtDiaChi.Location = new System.Drawing.Point(262, 70);
             this.txtDiaChi.Name = "txtDiaChi";
-            this.txtDiaChi.Size = new System.Drawing.Size(319, 32);
+            this.txtDiaChi.Size = new System.Drawing.Size(293, 32);
             this.txtDiaChi.TabIndex = 9;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(733, 20);
+            this.label3.Location = new System.Drawing.Point(624, 26);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(127, 24);
             this.label3.TabIndex = 3;
@@ -163,22 +179,22 @@ namespace GUI
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(338, 115);
+            this.txtEmail.Location = new System.Drawing.Point(262, 117);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(319, 32);
+            this.txtEmail.Size = new System.Drawing.Size(293, 32);
             this.txtEmail.TabIndex = 10;
             // 
             // txtHoTen
             // 
-            this.txtHoTen.Location = new System.Drawing.Point(338, 12);
+            this.txtHoTen.Location = new System.Drawing.Point(262, 18);
             this.txtHoTen.Name = "txtHoTen";
-            this.txtHoTen.Size = new System.Drawing.Size(319, 32);
+            this.txtHoTen.Size = new System.Drawing.Size(293, 32);
             this.txtHoTen.TabIndex = 11;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(731, 74);
+            this.label5.Location = new System.Drawing.Point(622, 78);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(129, 24);
             this.label5.TabIndex = 4;
@@ -187,7 +203,7 @@ namespace GUI
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(243, 123);
+            this.label4.Location = new System.Drawing.Point(175, 125);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(60, 24);
             this.label4.TabIndex = 5;
@@ -196,7 +212,7 @@ namespace GUI
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(243, 74);
+            this.label2.Location = new System.Drawing.Point(175, 78);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 24);
             this.label2.TabIndex = 6;
@@ -205,7 +221,7 @@ namespace GUI
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(243, 20);
+            this.label1.Location = new System.Drawing.Point(175, 26);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(69, 24);
             this.label1.TabIndex = 7;
@@ -215,9 +231,9 @@ namespace GUI
             // 
             this.panel2.Controls.Add(this.groupBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 212);
+            this.panel2.Location = new System.Drawing.Point(0, 204);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1330, 548);
+            this.panel2.Size = new System.Drawing.Size(1219, 526);
             this.panel2.TabIndex = 1;
             // 
             // groupBox1
@@ -226,7 +242,7 @@ namespace GUI
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1330, 548);
+            this.groupBox1.Size = new System.Drawing.Size(1219, 526);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Danh sách khách hàng";
@@ -243,18 +259,18 @@ namespace GUI
             this.dgvKhachHang.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgvKhachHang.RowTemplate.Height = 24;
             this.dgvKhachHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvKhachHang.Size = new System.Drawing.Size(1324, 517);
+            this.dgvKhachHang.Size = new System.Drawing.Size(1213, 495);
             this.dgvKhachHang.TabIndex = 0;
+            this.dgvKhachHang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKhachHang_CellClick);
             // 
             // KhachHangGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1330, 760);
+            this.ClientSize = new System.Drawing.Size(1219, 730);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "KhachHangGUI";
             this.Text = "KhachHangGUI";
@@ -283,6 +299,7 @@ namespace GUI
         private Label label1;
         private Panel panel2;
         private Button btnLichSuTieuThuNuoc;
+        private Button btnXuatDSKhachHang;
         private Button btnTimKiem;
         private Button btnXoa;
         private Button btnSua;

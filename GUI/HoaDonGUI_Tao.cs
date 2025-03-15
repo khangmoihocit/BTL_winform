@@ -51,7 +51,7 @@ namespace GUI
             int thang = int.Parse(txtThang.Text);
             int nam = int.Parse(txtNam.Text);
 
-            if (cboKhachHang.SelectedIndex > 0)
+            if (cboKhachHang.SelectedIndex != -1)
             {
                 
                 KhachHangDTO khachHangDTO = cboKhachHang.SelectedItem as KhachHangDTO;

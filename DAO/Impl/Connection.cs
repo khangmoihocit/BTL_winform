@@ -11,7 +11,7 @@ namespace DAO.impl
 {
     public class Connection
     {
-        private static string connectionString = ConfigurationManager.ConnectionStrings["khang"].ConnectionString;
+        public static string connectionString = ConfigurationManager.ConnectionStrings["khang"].ConnectionString;
 
         //private static string connectionString = "Data Source=KHANG\\SQLEXPRESS02;Initial Catalog=QuanLyThuPhiCapNuocSach;Integrated Security = True; TrustServerCertificate=True";
 

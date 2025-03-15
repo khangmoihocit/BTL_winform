@@ -157,7 +157,7 @@ namespace GUI
             findAll();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public void button1_Click(object sender, EventArgs e)
         {
             txtTenKhachHang.Text = "";
             txtHoaDonThang.Text = "";
@@ -171,6 +171,7 @@ namespace GUI
         {
             HoaDonGUI_Tao taoHoaDonGUI = new HoaDonGUI_Tao();
             taoHoaDonGUI.ShowDialog();
+            HoaDonGUI_Load(sender, e);
         }
 
         private void btnSua_Click(object sender, EventArgs e)
@@ -198,6 +199,7 @@ namespace GUI
             }
             HoaDonGUI_Sua hoaDonGUI_Sua = new HoaDonGUI_Sua(hoaDonDTO);
             hoaDonGUI_Sua.ShowDialog();
+            HoaDonGUI_Load(sender, e);
         }
 
         private void btnXuatHoaDon_Click_1(object sender, EventArgs e)

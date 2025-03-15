@@ -146,6 +146,7 @@
             // 
             this.txtTongThanhTien.Location = new System.Drawing.Point(774, 128);
             this.txtTongThanhTien.Name = "txtTongThanhTien";
+            this.txtTongThanhTien.ReadOnly = true;
             this.txtTongThanhTien.Size = new System.Drawing.Size(282, 32);
             this.txtTongThanhTien.TabIndex = 24;
             this.txtTongThanhTien.TextChanged += new System.EventHandler(this.textBox1_TextChanged);

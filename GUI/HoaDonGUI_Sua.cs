@@ -7,17 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BUS;
 using DTO;
+using exception;
 
 namespace GUI
 {
     public partial class HoaDonGUI_Sua: Form
     {
         private HoaDonDTO hoaDonDTO;
+        private HoaDonBUS hoaDonBUS;
         public HoaDonGUI_Sua(HoaDonDTO hoaDonDTO)
         {
             InitializeComponent();
             this.hoaDonDTO = hoaDonDTO;
+            hoaDonBUS = new HoaDonBUS();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -38,11 +42,11 @@ namespace GUI
             txtTongThanhTien.Text = hoaDonDTO.TongThanhTien.ToString();
             if(hoaDonDTO.TrangThaiThanhToan == 1)
             {
-                cboTrangThaiThanhToan.SelectedText = "đã thanh toán";
+                cboTrangThaiThanhToan.SelectedItem = "đã thanh toán";
             }
             else
             {
-                cboTrangThaiThanhToan.SelectedText = "chưa thanh toán";
+                cboTrangThaiThanhToan.SelectedItem = "chưa thanh toán";
 
             }
             dtpNgayLapHD.Value = hoaDonDTO.NgayLapHD;
@@ -50,7 +54,29 @@ namespace GUI
 
         private void btnCapNhat_Click(object sender, EventArgs e)
         {
+            try
+            {
+                HoaDonDTO hoaDon = new HoaDonDTO();
+                hoaDon.MaHoaDon = hoaDonDTO.MaHoaDon;
+                hoaDon.HdNam = int.Parse(txtHoaDonNam.Text);
+                hoaDon.HdThang = int.Parse(txtHoaDonThang.Text);
+                hoaDon.TongThanhTien = float.Parse(txtTongThanhTien.Text);
+                if (cboTrangThaiThanhToan.SelectedItem.ToString().Equals("đã thanh toán"))
+                {
+                    hoaDon.TrangThaiThanhToan = 1;
+                }
+                else hoaDon.TrangThaiThanhToan = 0;
 
+                hoaDon.NgayLapHD = DateTime.Parse(dtpNgayLapHD.Value.ToString());
+                hoaDonBUS.update(hoaDon);
+                this.Close();
+            }catch(DatabaseException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

@@ -133,6 +133,25 @@ namespace DAO.impl
         public void update(HoaDonDTO hoaDonDTO)
         {
             string query = "spHoaDon_Update";
+            using(SqlConnection sqlConnection = Connection.GetSqlConnection())
+            {
+                sqlConnection.Open();
+                using(SqlCommand sqlCommand = new SqlCommand(query, sqlConnection))
+                {
+                    sqlCommand.CommandType = CommandType.StoredProcedure;
+                    sqlCommand.Parameters.AddWithValue("@id", hoaDonDTO.MaHoaDon);
+                    sqlCommand.Parameters.AddWithValue("@nam", hoaDonDTO.HdNam);
+                    sqlCommand.Parameters.AddWithValue("@thang", hoaDonDTO.HdThang);
+                    sqlCommand.Parameters.AddWithValue("@tongthanhtien", hoaDonDTO.TongThanhTien);
+                    sqlCommand.Parameters.AddWithValue("@trangthaihoadon", hoaDonDTO.TrangThaiThanhToan);
+                    sqlCommand.Parameters.AddWithValue("@ngaylaphd", hoaDonDTO.NgayLapHD);
+
+                    int n = sqlCommand.ExecuteNonQuery();
+                    if (n < 0) throw new DatabaseException("Lỗi! Không thể cập nhật được");
+
+                }
+                sqlConnection.Close();
+            }
         }
     }
 }

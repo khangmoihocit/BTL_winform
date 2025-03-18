@@ -15,5 +15,9 @@ namespace DAO
         DataTable findAll(Dictionary<string, object> param);
         void add(HoaDonDTO hoaDonDTO);
         void update(HoaDonDTO hoaDonDTO);
+
+        DataTable DoanhThu();
+        DataTable DoanhThuChuaThanhToan();
+        DataTable DoanhThuDaThanhToan();
     }
 }

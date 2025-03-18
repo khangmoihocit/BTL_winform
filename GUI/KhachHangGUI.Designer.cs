@@ -132,7 +132,7 @@ namespace GUI
             // btnSua
             // 
             this.btnSua.AutoSize = true;
-            this.btnSua.Location = new System.Drawing.Point(573, 164);
+            this.btnSua.Location = new System.Drawing.Point(573, 166);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(82, 34);
             this.btnSua.TabIndex = 13;

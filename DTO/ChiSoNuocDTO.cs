@@ -19,6 +19,8 @@ namespace DTO
 
         public ChiSoNuocDTO()
         {
+            _khachHangDTO = new KhachHangDTO();
+            _nhanVienDTO = new NhanVienDTO();
         }
 
         public ChiSoNuocDTO(int maChiSo, KhachHangDTO khachHangDTO, NhanVienDTO nhanVienDTO, float chiSoCu, float chiSoMoi, int thang, int nam, DateTime ngayGhi)

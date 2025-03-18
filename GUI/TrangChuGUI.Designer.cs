@@ -47,6 +47,7 @@ namespace GUI
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblHeader = new System.Windows.Forms.Label();
             this.panel_Body = new System.Windows.Forms.Panel();
+            this.btnThongKe = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -59,6 +60,7 @@ namespace GUI
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.SkyBlue;
+            this.panel1.Controls.Add(this.btnThongKe);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.btnHoaDon);
             this.panel1.Controls.Add(this.btnQuanLySuDungNuoc);
@@ -228,6 +230,18 @@ namespace GUI
             this.panel_Body.Size = new System.Drawing.Size(1393, 807);
             this.panel_Body.TabIndex = 4;
             // 
+            // btnThongKe
+            // 
+            this.btnThongKe.AutoSize = true;
+            this.btnThongKe.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnThongKe.Location = new System.Drawing.Point(0, 381);
+            this.btnThongKe.Name = "btnThongKe";
+            this.btnThongKe.Size = new System.Drawing.Size(216, 59);
+            this.btnThongKe.TabIndex = 14;
+            this.btnThongKe.Text = "Thống kê";
+            this.btnThongKe.UseVisualStyleBackColor = true;
+            this.btnThongKe.Click += new System.EventHandler(this.btnThongKe_Click);
+            // 
             // TrangChuGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
@@ -247,6 +261,7 @@ namespace GUI
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TrangChuGUI_FormClosing);
             this.Load += new System.EventHandler(this.TrangChuGUI_Load_1);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
@@ -277,5 +292,6 @@ namespace GUI
         private Panel panel4;
         private PictureBox pictureBox2;
         private PictureBox pictureBox1;
+        private Button btnThongKe;
     }
 }

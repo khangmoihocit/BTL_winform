@@ -12,12 +12,11 @@ using DAO.impl;
 
 namespace GUI
 {
-    public partial class FormSuaKH: Form
+    public partial class KhachHangGUI_Sua: Form
     {
-        public FormSuaKH(int maKH, string diaChi, string Email, string hoTen, string soDienThoai, string ngayDK)
+        public KhachHangGUI_Sua(int maKH, string diaChi, string Email, string hoTen, string soDienThoai, string ngayDK)
         {
             InitializeComponent();
-            this.FormBorderStyle = FormBorderStyle.None;
             lblmaKH.Text = maKH.ToString();
             txtHoTen.Text = hoTen;
             txtEmail.Text = Email;
@@ -74,6 +73,10 @@ namespace GUI
         {
             this.Close();
         }
-        
+
+        private void KhachHangGUI_Sua_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -26,5 +26,8 @@ namespace BUS
         public DataTable findAll(Dictionary<string, object> param) => hoaDonDAO.findAll(param);
         public void add(HoaDonDTO hoaDonDTO) => hoaDonDAO.add(hoaDonDTO);
         public void update(HoaDonDTO hoaDonDTO) => hoaDonDAO.update(hoaDonDTO);
+        public DataTable DoanhThu() => hoaDonDAO.DoanhThu();
+        public DataTable DoanhThuChuaThanhToan() => hoaDonDAO.DoanhThuChuaThanhToan();
+        public DataTable DoanhThuDaThanhToan() => hoaDonDAO.DoanhThuDaThanhToan();
     }
 }

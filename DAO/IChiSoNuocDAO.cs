@@ -11,6 +11,10 @@ namespace DAO
     public interface IChiSoNuocDAO
     {
         DataTable getAllByDataTable();
+        void deleteById(int id);
         List<ChiSoNuocDTO> findByMakhachhang(int maKhachHang, int thang, int nam);
+        void update(ChiSoNuocDTO chisonuocDTO);
+        DataTable findAll(Dictionary<string, object> param);
+        void add(ChiSoNuocDTO chiSoNuocDTO);
     }
 }

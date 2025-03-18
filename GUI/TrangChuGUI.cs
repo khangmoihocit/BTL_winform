@@ -84,9 +84,9 @@ namespace GUI
 
         private void btnDangXuat_Click(object sender, EventArgs e)
         {
+            this.Hide();
             DangNhapGUI dangNhapGUI = new DangNhapGUI();
             dangNhapGUI.ShowDialog();
-            this.Close();
         }
 
         private void btnTongQuan_Click_1(object sender, EventArgs e)
@@ -131,6 +131,12 @@ namespace GUI
             childForm.Show();
 
             currentChildForm = childForm; // Lưu Form con hiện tại
+        }
+
+        private void btnThongKe_Click(object sender, EventArgs e)
+        {
+            showChildFormPanel(Application.OpenForms["ThongKeBaoCaoGUI"] as ThongKeBaoCaoGUI ?? new ThongKeBaoCaoGUI());
+            lblHeader.Text = "Thống kê";
         }
     }
 

@@ -117,7 +117,7 @@ namespace GUI
             string soDienThoai = dgvNhanVien.SelectedRows[0].Cells["Số điện thoại"].Value.ToString();
             string gioiTinh = dgvNhanVien.SelectedRows[0].Cells["Giới tính"].Value.ToString();
 
-            FormSuaNV formSuaNV = new FormSuaNV(maNV, diaChi, Email, hoTen, soDienThoai, gioiTinh);
+            NhanVienGUI_Sua formSuaNV = new NhanVienGUI_Sua(maNV, diaChi, Email, hoTen, soDienThoai, gioiTinh);
             formSuaNV.Show();
             formSuaNV.FormClosed += (s, arg) => LoadDataNV();
         }
@@ -232,7 +232,7 @@ namespace GUI
         private void btnXuatDSNhanVien_Click(object sender, EventArgs e)
         {
             NhanVienReportcs nhanVienReport = new NhanVienReportcs();
-            string filePath = "\"C:\\Users\\Admin\\Downloads\\Report\\CrystalReport_NhanVien.rpt\"";
+            string filePath = "D:\\C#\\BTL\\QuanLyThuPhiCapNuocSach\\Report\\CrystalReport_NhanVien.rpt";
             string recordFilter = "";
             if (dgvNhanVien.SelectedRows.Count > 0)
             {

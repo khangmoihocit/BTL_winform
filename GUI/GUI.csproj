@@ -58,17 +58,17 @@
     <Compile Include="DangNhapGUI.Designer.cs">
       <DependentUpon>DangNhapGUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormSuaKH.cs">
+    <Compile Include="KhachHangGUI_Sua.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormSuaKH.Designer.cs">
-      <DependentUpon>FormSuaKH.cs</DependentUpon>
+    <Compile Include="KhachHangGUI_Sua.Designer.cs">
+      <DependentUpon>KhachHangGUI_Sua.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormSuaNV.cs">
+    <Compile Include="NhanVienGUI_Sua.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormSuaNV.Designer.cs">
-      <DependentUpon>FormSuaNV.cs</DependentUpon>
+    <Compile Include="NhanVienGUI_Sua.Designer.cs">
+      <DependentUpon>NhanVienGUI_Sua.cs</DependentUpon>
     </Compile>
     <Compile Include="HoaDonGUI.cs">
       <SubType>Form</SubType>
@@ -102,6 +102,18 @@
     <Compile Include="QuanLySuDungNuocGUI.Designer.cs">
       <DependentUpon>QuanLySuDungNuocGUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="QuanLySuDungNuocGUI_Sua.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuanLySuDungNuocGUI_Sua.Designer.cs">
+      <DependentUpon>QuanLySuDungNuocGUI_Sua.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLySuDungNuocGUI_Them.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuanLySuDungNuocGUI_Them.Designer.cs">
+      <DependentUpon>QuanLySuDungNuocGUI_Them.cs</DependentUpon>
+    </Compile>
     <Compile Include="QuenMatKhauGUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +125,12 @@
     </Compile>
     <Compile Include="HoaDonGUI_Tao.Designer.cs">
       <DependentUpon>HoaDonGUI_Tao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ThongKeBaoCaoGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThongKeBaoCaoGUI.Designer.cs">
+      <DependentUpon>ThongKeBaoCaoGUI.cs</DependentUpon>
     </Compile>
     <Compile Include="TongQuanGUI.cs">
       <SubType>Form</SubType>
@@ -132,11 +150,11 @@
     <EmbeddedResource Include="DangNhapGUI.resx">
       <DependentUpon>DangNhapGUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormSuaKH.resx">
-      <DependentUpon>FormSuaKH.cs</DependentUpon>
+    <EmbeddedResource Include="KhachHangGUI_Sua.resx">
+      <DependentUpon>KhachHangGUI_Sua.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormSuaNV.resx">
-      <DependentUpon>FormSuaNV.cs</DependentUpon>
+    <EmbeddedResource Include="NhanVienGUI_Sua.resx">
+      <DependentUpon>NhanVienGUI_Sua.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HoaDonGUI.resx">
       <DependentUpon>HoaDonGUI.cs</DependentUpon>
@@ -163,11 +181,20 @@
     <EmbeddedResource Include="QuanLySuDungNuocGUI.resx">
       <DependentUpon>QuanLySuDungNuocGUI.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="QuanLySuDungNuocGUI_Sua.resx">
+      <DependentUpon>QuanLySuDungNuocGUI_Sua.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuanLySuDungNuocGUI_Them.resx">
+      <DependentUpon>QuanLySuDungNuocGUI_Them.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="QuenMatKhauGUI.resx">
       <DependentUpon>QuenMatKhauGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HoaDonGUI_Tao.resx">
       <DependentUpon>HoaDonGUI_Tao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThongKeBaoCaoGUI.resx">
+      <DependentUpon>ThongKeBaoCaoGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TongQuanGUI.resx">
       <DependentUpon>TongQuanGUI.cs</DependentUpon>
@@ -224,6 +251,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\trangchu.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backgrou.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

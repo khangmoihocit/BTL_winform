@@ -13,6 +13,68 @@ namespace DAO.impl
 {
     public class HoaDonDAOImpl : IHoaDonDAO
     {
+
+        public DataTable DoanhThu()
+        {
+            DataTable dataTable = new DataTable();
+            string query = "sp_TinhDoanhThu1";
+            using (SqlConnection sqlConnection = Connection.GetSqlConnection())
+            {
+                sqlConnection.Open();
+                using (SqlCommand sqlCommand = new SqlCommand(query, sqlConnection))
+                {
+                    sqlCommand.CommandType = CommandType.Text;
+                    using (SqlDataAdapter dataAdapter = new SqlDataAdapter(sqlCommand))
+                    {
+                        dataAdapter.Fill(dataTable);
+                    }
+                }
+                sqlConnection.Close();
+
+            }
+            return dataTable;
+        }
+
+        public DataTable DoanhThuChuaThanhToan()
+        {
+            DataTable dataTable = new DataTable();
+            string query = "sp_TinhDoanhThuChuaThanhToan";
+            using (SqlConnection sqlConnection = Connection.GetSqlConnection())
+            {
+                sqlConnection.Open();
+                using (SqlCommand sqlCommand = new SqlCommand(query, sqlConnection))
+                {
+                    sqlCommand.CommandType = CommandType.Text;
+                    using (SqlDataAdapter dataAdapter = new SqlDataAdapter(sqlCommand))
+                    {
+                        dataAdapter.Fill(dataTable);
+                    }
+                }
+                sqlConnection.Close();
+
+            }
+            return dataTable;
+        }
+        public DataTable DoanhThuDaThanhToan()
+        {
+            DataTable dataTable = new DataTable();
+            string query = "sp_TinhDoanhThuDaThanhToan";
+            using (SqlConnection sqlConnection = Connection.GetSqlConnection())
+            {
+                sqlConnection.Open();
+                using (SqlCommand sqlCommand = new SqlCommand(query, sqlConnection))
+                {
+                    sqlCommand.CommandType = CommandType.Text;
+                    using (SqlDataAdapter dataAdapter = new SqlDataAdapter(sqlCommand))
+                    {
+                        dataAdapter.Fill(dataTable);
+                    }
+                }
+                sqlConnection.Close();
+
+            }
+            return dataTable;
+        }
         public DataTable HoaDons()
         {
             //List<HoaDonDTO> hoaDonDTOs = new List<HoaDonDTO>();

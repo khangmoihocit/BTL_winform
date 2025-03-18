@@ -88,6 +88,10 @@ namespace DAO.impl
                     connection.Close();
                 }
             }
+            catch(NullReferenceException ex)
+            {
+                throw new DatabaseException("Lỗi: " + ex.Message);
+            }
             catch (Exception ex)
             {
                 throw new DatabaseException("Lỗi: " + ex.Message);

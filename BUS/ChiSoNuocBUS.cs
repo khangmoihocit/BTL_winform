@@ -25,5 +25,11 @@ namespace BUS
         }
 
         public List<ChiSoNuocDTO> findByMakhachhang(int maKhachHang, int thang, int nam) => chiSoNuocDAO.findByMakhachhang(maKhachHang, thang, nam);
+        public void deleteById(int id) => chiSoNuocDAO.deleteById(id);
+        public void update(ChiSoNuocDTO chisonuocDTO) => chiSoNuocDAO.update(chisonuocDTO);
+
+        public DataTable findAll(Dictionary<string, object> param) => chiSoNuocDAO.findAll(param);
+
+        public void add(ChiSoNuocDTO chiSoNuocDTO) => chiSoNuocDAO.add(chiSoNuocDTO);
     }
 }

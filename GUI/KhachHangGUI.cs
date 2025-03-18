@@ -346,7 +346,7 @@ namespace GUI
             string soDienThoai = dgvKhachHang.SelectedRows[0].Cells["Số điện thoại"].Value.ToString();
             string ngayDK = dgvKhachHang.SelectedRows[0].Cells["Ngày đăng ký"].Value.ToString();
 
-            FormSuaKH formSuaKH = new FormSuaKH(maKH, diaChi, Email, hoTen, soDienThoai, ngayDK);
+            KhachHangGUI_Sua formSuaKH = new KhachHangGUI_Sua(maKH, diaChi, Email, hoTen, soDienThoai, ngayDK);
             formSuaKH.Show();
             formSuaKH.FormClosed += (s, arg) => LoadDataKH();
 

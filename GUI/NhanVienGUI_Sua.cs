@@ -13,13 +13,12 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace GUI
 {
-    public partial class FormSuaNV: Form
+    public partial class NhanVienGUI_Sua: Form
     {
         string connectionString = Connection.connectionString;
-        public FormSuaNV(int maNV, string diaChi, string Email, string hoTen, string soDienThoai, string gioiTinh)
+        public NhanVienGUI_Sua(int maNV, string diaChi, string Email, string hoTen, string soDienThoai, string gioiTinh)
         {
             InitializeComponent();
-            this.FormBorderStyle = FormBorderStyle.None;
             lblmaNV.Text = maNV.ToString();
             txtDiachi.Text = diaChi;
             txtEmail.Text = Email;
@@ -150,6 +149,11 @@ namespace GUI
                 MessageBox.Show("Vui lòng chọn một nhân viên để sửa!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             this.Close();
+        }
+
+        private void NhanVienGUI_Sua_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

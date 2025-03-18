@@ -55,6 +55,7 @@ namespace GUI
             {
                 
                 KhachHangDTO khachHangDTO = cboKhachHang.SelectedItem as KhachHangDTO;
+                //kiểm tra xem khách hàng này đã có thông tin sử dụng nước của tháng và năm vừa nhập k
                 if(chiSoNuocBUS.findByMakhachhang(khachHangDTO.MaKhachHang, thang, nam).Count > 0)
                 {
                     ChiSoNuocDTO chiSoNuocDTO = chiSoNuocBUS.findByMakhachhang(khachHangDTO.MaKhachHang, thang, nam)[0];

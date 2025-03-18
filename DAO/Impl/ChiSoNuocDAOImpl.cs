@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DAO.impl;
 using DTO;
+using exception;
 
 namespace DAO.Impl
 {
@@ -62,9 +63,132 @@ namespace DAO.Impl
                         return dataTable;
                     }
                 }
-                sqlConnection.Close();
+                
 
             }
+        }
+        public void deleteById(int id)
+        {
+            string query = "sp_DeleteChiSoNuoc";
+            try
+            {
+                using (SqlConnection sqlConnection = Connection.GetSqlConnection())
+                {
+                    sqlConnection.Open();
+                    using (SqlCommand sqlCommand = new SqlCommand(query, sqlConnection))
+                    {
+                        sqlCommand.CommandType = CommandType.StoredProcedure;
+                        sqlCommand.Parameters.Add(new SqlParameter("@iMaChiSo", SqlDbType.Int)).Value = id;
+                        int n = sqlCommand.ExecuteNonQuery();
+                        if (n < 0) throw new DatabaseException("Lỗi! Chưa xóa được");
+                    }
+                    sqlConnection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                
+            }
+        }
+        public void update(ChiSoNuocDTO chisonuocDTO)
+        {
+            string query = "sp_UpdateChisonuoc";
+            using (SqlConnection sqlConnection = Connection.GetSqlConnection())
+            {
+                sqlConnection.Open();
+                using (SqlCommand sqlCommand = new SqlCommand(query, sqlConnection))
+                {
+                    sqlCommand.CommandType = CommandType.StoredProcedure;
+                    sqlCommand.Parameters.AddWithValue("@iMaChiSo", chisonuocDTO.MaChiSo);
+                    sqlCommand.Parameters.AddWithValue("@fChiSoCu", chisonuocDTO.ChiSoCu);
+                    sqlCommand.Parameters.AddWithValue("@fChiSoMoi", chisonuocDTO.ChiSoMoi);
+                    sqlCommand.Parameters.AddWithValue("@dNgayGhi", chisonuocDTO.NgayGhi);
+                    sqlCommand.Parameters.AddWithValue("@iThang", chisonuocDTO.Thang);
+                    sqlCommand.Parameters.AddWithValue("@iNam", chisonuocDTO.Nam);
+
+                    int n = sqlCommand.ExecuteNonQuery();
+                    if (n < 0) throw new DatabaseException("Lỗi! Không thể cập nhật được");
+
+                }
+                sqlConnection.Close();
+            }
+        }
+        public DataTable findAll(Dictionary<string, object> param)
+        {
+            string query = "sp_GetChiSoNuoc";
+
+            try
+            {
+                using (SqlConnection sqlConnection = Connection.GetSqlConnection())
+                {
+                    sqlConnection.Open();
+                    using (SqlCommand sqlCommand = new SqlCommand(query, sqlConnection))
+                    {
+                        sqlCommand.CommandType = CommandType.StoredProcedure;
+
+                        //duyệt qua các thông tin user tìm kiếm
+                        foreach (var item in param)
+                        {
+                            if (!string.IsNullOrEmpty(item.Value.ToString()))
+                            {
+                                sqlCommand.Parameters.AddWithValue(item.Key, item.Value.ToString());
+
+                            }
+                        }
+
+
+                        using (SqlDataAdapter dataAdapter = new SqlDataAdapter(sqlCommand))
+                        {
+                            DataTable dataTable = new DataTable();
+                            dataAdapter.Fill(dataTable);
+                            return dataTable;
+                        }
+                    }
+                    sqlConnection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new DatabaseException("Lỗi! không thể tìm\n" + ex.Message + "\n query: " + query.ToString());
+            }
+            finally
+            {
+            }
+        }
+
+        public void add(ChiSoNuocDTO chiSoNuocDTO)
+        {
+            string query = "sp_InsertChiSoNuoc";
+            try
+            {
+                using (SqlConnection sqlConnection = Connection.GetSqlConnection())
+                {
+                    sqlConnection.Open();
+                    using (SqlCommand sqlCommand = new SqlCommand(query, sqlConnection))
+                    {
+                        sqlCommand.CommandType = CommandType.StoredProcedure;
+
+                        sqlCommand.Parameters.AddWithValue("@iMaKH", chiSoNuocDTO.KhachHangDTO.MaKhachHang);
+                        sqlCommand.Parameters.AddWithValue("@iMaNV", chiSoNuocDTO.NhanVienDTO.MaNhanVien);
+                        sqlCommand.Parameters.AddWithValue("@fChiSoCu", chiSoNuocDTO.ChiSoCu);
+                        sqlCommand.Parameters.AddWithValue("@fChiSoMoi", chiSoNuocDTO.ChiSoMoi);
+                        sqlCommand.Parameters.AddWithValue("@dNgayGhi", chiSoNuocDTO.NgayGhi);
+                        sqlCommand.Parameters.AddWithValue("@iThang", chiSoNuocDTO.Thang);
+                        sqlCommand.Parameters.AddWithValue("@iNam", chiSoNuocDTO.Nam);
+
+
+                        int n = sqlCommand.ExecuteNonQuery();
+                    }
+                    sqlConnection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new DatabaseException("Lỗi!" + ex.Message + "\n thêm hóa đơn thất bại");
+            }
+            
+
+
         }
     }
 }

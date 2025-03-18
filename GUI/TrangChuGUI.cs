@@ -84,10 +84,9 @@ namespace GUI
 
         private void btnDangXuat_Click(object sender, EventArgs e)
         {
-
-                        this.Close();
-                        DangNhapGUI dangNhapGUI = new DangNhapGUI();
-                        dangNhapGUI.ShowDialog();
+            DangNhapGUI dangNhapGUI = new DangNhapGUI();
+            dangNhapGUI.ShowDialog();
+            this.Close();
         }
 
         private void btnTongQuan_Click_1(object sender, EventArgs e)

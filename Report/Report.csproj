@@ -55,11 +55,35 @@
       <DependentUpon>CrystalReport_HoaDon.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CrystalReport_KhachHang1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport_KhachHang.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReport_NhanVien.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport_NhanVien.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="HoaDonReport.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="HoaDonReport.Designer.cs">
       <DependentUpon>HoaDonReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KhachHangReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KhachHangReport.Designer.cs">
+      <DependentUpon>KhachHangReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVienReportcs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhanVienReportcs.Designer.cs">
+      <DependentUpon>NhanVienReportcs.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -68,8 +92,22 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalReport_HoaDon.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReport_KhachHang.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport_KhachHang1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReport_NhanVien.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport_NhanVien.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="HoaDonReport.resx">
       <DependentUpon>HoaDonReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KhachHangReport.resx">
+      <DependentUpon>KhachHangReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NhanVienReportcs.resx">
+      <DependentUpon>NhanVienReportcs.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

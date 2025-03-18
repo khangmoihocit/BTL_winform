@@ -11,7 +11,6 @@ namespace DAO
     public interface IChiSoNuocDAO
     {
         DataTable getAllByDataTable();
-
         List<ChiSoNuocDTO> findByMakhachhang(int maKhachHang, int thang, int nam);
     }
 }

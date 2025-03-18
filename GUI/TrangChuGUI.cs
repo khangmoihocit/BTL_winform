@@ -54,7 +54,7 @@ namespace GUI
 
         private void btnNhanVien_Click(object sender, EventArgs e)
         {
-            ShowChildFormInGroupBox(Application.OpenForms["NhanVienGUI"] as NhanVienGUI ?? new NhanVienGUI());
+            showChildFormPanel(Application.OpenForms["NhanVienGUI"] as NhanVienGUI ?? new NhanVienGUI());
             openChildForm(new NhanVienGUI());
             lblHeader.Text = "Quản lý nhân viên";
 
@@ -62,50 +62,38 @@ namespace GUI
 
         private void btnKhachHang_Click(object sender, EventArgs e)
         {
-            ShowChildFormInGroupBox(Application.OpenForms["KhachHangGUI"] as KhachHangGUI ?? new KhachHangGUI());
+            showChildFormPanel(Application.OpenForms["KhachHangGUI"] as KhachHangGUI ?? new KhachHangGUI());
             lblHeader.Text = "Quản lý khách hàng";
 
         }
 
         private void btnQuanLySuDungNuoc_Click(object sender, EventArgs e)
         {
-            ShowChildFormInGroupBox(Application.OpenForms["QuanLySuDungNuocGUI"] as QuanLySuDungNuocGUI ?? new QuanLySuDungNuocGUI());
+            showChildFormPanel(Application.OpenForms["QuanLySuDungNuocGUI"] as QuanLySuDungNuocGUI ?? new QuanLySuDungNuocGUI());
             lblHeader.Text = "Quản lý sử dụng nước";
         }
 
         private void btnHoaDon_Click(object sender, EventArgs e)
         {
-            ShowChildFormInGroupBox(Application.OpenForms["HoaDonGUI"] as HoaDonGUI ?? new HoaDonGUI());
+            showChildFormPanel(Application.OpenForms["HoaDonGUI"] as HoaDonGUI ?? new HoaDonGUI());
             lblHeader.Text = "Quản lý hóa đơn";
         }
 
-        private void btnThongkeVaBaocao_Click(object sender, EventArgs e)
-        {
-            ShowChildFormInGroupBox(Application.OpenForms["ThongKeBaoCaoGUI"] as ThongKeBaoCaoGUI ?? new ThongKeBaoCaoGUI());
-            lblHeader.Text = "Thống kê và báo cáo";
-        }
 
 
 
         private void btnDangXuat_Click(object sender, EventArgs e)
         {
-            
-                    DialogResult result = MessageBox.Show("Bạn có muốn đăng xuất không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (result == DialogResult.Yes)
-                    {
-                        this.Hide();
+
+                        this.Close();
                         DangNhapGUI dangNhapGUI = new DangNhapGUI();
                         dangNhapGUI.ShowDialog();
-                    }
-                    else
-                    {
-
-                    }
-                }
+        }
 
         private void btnTongQuan_Click_1(object sender, EventArgs e)
         {
-
+            showChildFormPanel(Application.OpenForms["TongQuanGUI"] as TongQuanGUI ?? new TongQuanGUI());
+            lblHeader.Text = "Trang chủ";
         }
 
         private void TrangChuGUI_FormClosing(object sender, FormClosingEventArgs e)
@@ -123,7 +111,7 @@ namespace GUI
 
        
 
-        private void ShowChildFormInGroupBox(Form childForm)
+        private void showChildFormPanel(Form childForm)
         {
             if (currentChildForm != null)
             {

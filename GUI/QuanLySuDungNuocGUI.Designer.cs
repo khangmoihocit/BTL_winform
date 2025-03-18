@@ -96,6 +96,7 @@ namespace GUI
             this.btnXuatDS.TabIndex = 4;
             this.btnXuatDS.Text = "Xuất DS chỉ số nước";
             this.btnXuatDS.UseVisualStyleBackColor = true;
+            this.btnXuatDS.Click += new System.EventHandler(this.btnXuatDS_Click);
             // 
             // btnTimKiem
             // 

@@ -24,6 +24,7 @@ namespace GUI
         {
             InitializeComponent();
             khachHangBUS = new KhachHangBUS();
+            //this.IsMdiContainer = true;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -35,6 +36,73 @@ namespace GUI
         {
             dgvKhachHang.DataSource = khachHangBUS.getAllByDataTable();
         }
+        private Form currentFormChild;
+        //private void openChildForm2(Form childForm)
+        //{
+        //    //if (currentFormChild != null)
+        //    //{
+        //    //    currentFormChild.Close();
+        //    //    currentFormChild.Dispose();  // Giải phóng tài nguyên
+        //    //}
+
+        //    //if (panel_Body == null)
+        //    //{
+        //    //    panel_Body = new Panel();
+        //    //    panel_Body.Dock = DockStyle.Fill;
+        //    //    this.Controls.Add(panel_Body); // Thêm vào Form
+        //    //}
+
+        //    //if (currentFormChild != null)
+        //    //{
+        //    //    currentFormChild.Close();
+        //    //    currentFormChild.Dispose();
+        //    //}
+
+        //    //currentFormChild = childForm;
+
+        //    //childForm.TopLevel = false;
+        //    //childForm.FormBorderStyle = FormBorderStyle.None;
+        //    //childForm.Dock = DockStyle.Fill;
+
+        //    //panel_Body.Controls.Clear();
+        //    //panel_Body.Controls.Add(childForm);
+        //    //panel_Body.Tag = childForm;
+        //    //childForm.Parent = panel_Body;
+        //    //childForm.BringToFront();
+        //    //childForm.Show();
+
+        //    //foreach (Form form in this.MdiChildren)
+        //    //{
+        //    //    form.Close();
+        //    //}
+
+        //    //childForm.MdiParent = this;  // Gán Form chính làm MDI Parent
+        //    //childForm.FormBorderStyle = FormBorderStyle.None;  // Ẩn viền
+        //    //childForm.Dock = DockStyle.Fill;  // Full Panel
+        //    //childForm.Show();
+
+        //    FormSuaKH formSuaKH = new FormSuaKH(maKH, diaChi, Email, string hoTen, string soDienThoai, string ngayDK);
+        //    formSuaKH.ShowDialog();
+
+        //    //if (panel_Body == null)
+        //    //{
+        //    //    panel_Body = new Panel();
+        //    //    panel_Body.Dock = DockStyle.Fill;
+        //    //    this.Controls.Add(panel_Body); // Thêm vào Form
+        //    //}
+        //    //if (panel_Body.Controls.Count > 0)
+        //    //{
+        //    //    panel_Body.Controls.Clear();
+        //    //}
+
+        //    //childForm.TopLevel = false;  // Không phải Form độc lập
+        //    //childForm.FormBorderStyle = FormBorderStyle.None;  // Ẩn viền
+        //    //childForm.Dock = DockStyle.Fill;  // Lấp đầy Panel
+        //    //panel_Body.Controls.Add(childForm);  // Thêm vào Panel
+        //    //panel_Body.Tag = childForm;
+        //    //childForm.BringToFront();
+        //    //childForm.Show();
+        //}
 
         //private Boolean checkHopLe()
         //{
@@ -71,8 +139,8 @@ namespace GUI
         //    }
         //}
 
-        
-        
+
+
         public int getIDKhachHang(string tenKH)
         {
             using (SqlConnection Cnn = new SqlConnection(connectionString))
@@ -108,20 +176,20 @@ namespace GUI
         //Xem lai
         
 
-        private void dgvKhachHang_CellClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0) // Đảm bảo không bấm vào tiêu đề cột
-            {
-                DataGridViewRow row = dgvKhachHang.Rows[e.RowIndex];
+        //private void dgvKhachHang_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        //{
+        //    if (e.RowIndex >= 0) // Đảm bảo không bấm vào tiêu đề cột
+        //    {
+        //        DataGridViewRow row = dgvKhachHang.Rows[e.RowIndex];
 
-                txtDiaChi.Text = row.Cells["Địa chỉ"].Value.ToString();
-                txtEmail.Text = row.Cells["Email"].Value.ToString();
-                txtHoTen.Text = row.Cells["Họ tên"].Value.ToString();
-                txtSoDienThoai.Text = row.Cells["Số điện thoại"].Value.ToString();
-                dtpNgayDangKy.Text = row.Cells["Ngày đăng ký"].Value.ToString();
-                //radNam.Text = row.Cells["Ngày đăng ký"].Value.ToString();
-            }
-        }
+        //        txtDiaChi.Text = row.Cells["Địa chỉ"].Value.ToString();
+        //        txtEmail.Text = row.Cells["Email"].Value.ToString();
+        //        txtHoTen.Text = row.Cells["Họ tên"].Value.ToString();
+        //        txtSoDienThoai.Text = row.Cells["Số điện thoại"].Value.ToString();
+        //        dtpNgayDangKy.Text = row.Cells["Ngày đăng ký"].Value.ToString();
+        //        //radNam.Text = row.Cells["Ngày đăng ký"].Value.ToString();
+        //    }
+        //}
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
@@ -157,6 +225,7 @@ namespace GUI
                 dt.Columns["sHoTen"].ColumnName = "Họ tên";
                 dgvKhachHang.DataSource = dt;
             }
+            
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -180,11 +249,11 @@ namespace GUI
                             int rowsAffected = cmd.ExecuteNonQuery();
                             if (rowsAffected > 0)
                             {
-                                MessageBox.Show("Xóa khách hàng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                //MessageBox.Show("Xóa khách hàng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                             else
                             {
-                                MessageBox.Show("Không thể xóa khách hàng!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                //MessageBox.Show("Không thể xóa khách hàng!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                         }
                     }
@@ -194,6 +263,8 @@ namespace GUI
             {
                 MessageBox.Show("Vui lòng chọn một khách hàng để xóa!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            LoadDataKH();
+            
         }
 
         private void btnLichSuTieuThuNuoc_Click(object sender, EventArgs e)
@@ -268,44 +339,62 @@ namespace GUI
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtHoTen.Text))
-            {
-                int maKH = Convert.ToInt32(dgvKhachHang.SelectedRows[0].Cells["Mã Khách Hàng"].Value);
-                string tenKH = txtHoTen.Text;
-                string diaChi = txtDiaChi.Text;
-                string soDienThoai = txtSoDienThoai.Text;
-                string email = txtEmail.Text;
-                DateTime ngayDangKy = DateTime.Parse(dtpNgayDangKy.Value.ToString());
+            int maKH = Convert.ToInt32(dgvKhachHang.SelectedRows[0].Cells["Mã Khách Hàng"].Value);
+            string diaChi = dgvKhachHang.SelectedRows[0].Cells["Địa chỉ"].Value.ToString();
+            string Email = dgvKhachHang.SelectedRows[0].Cells["Email"].Value.ToString();
+            string hoTen = dgvKhachHang.SelectedRows[0].Cells["Họ tên"].Value.ToString();
+            string soDienThoai = dgvKhachHang.SelectedRows[0].Cells["Số điện thoại"].Value.ToString();
+            string ngayDK = dgvKhachHang.SelectedRows[0].Cells["Ngày đăng ký"].Value.ToString();
 
-                using (SqlConnection Cnn = new SqlConnection(connectionString))
-                {
-                    Cnn.Open();
-                    using (SqlCommand cmd = new SqlCommand("spKhachHang_Update", Cnn))
-                    {
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@iMaKH", maKH);
-                        cmd.Parameters.AddWithValue("@sHoTen", tenKH);
-                        cmd.Parameters.AddWithValue("@sDiaChi", diaChi);
-                        cmd.Parameters.AddWithValue("@sSoDienThoai", soDienThoai);
-                        cmd.Parameters.AddWithValue("@sEmail", email);
-                        cmd.Parameters.AddWithValue("@dNgayDangKy", ngayDangKy);
+            FormSuaKH formSuaKH = new FormSuaKH(maKH, diaChi, Email, hoTen, soDienThoai, ngayDK);
+            formSuaKH.Show();
+            formSuaKH.FormClosed += (s, arg) => LoadDataKH();
 
-                        int rowsAffected = cmd.ExecuteNonQuery();
-                        if (rowsAffected > 0)
-                        {
-                            MessageBox.Show("Sửa thông tin khách hàng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                        else
-                        {
-                            MessageBox.Show("Không thể cập nhật khách hàng!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("Vui lòng chọn một khách hàng để sửa!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            //openChildForm2(new FormSuaKH(maKH, diaChi, Email, hoTen, soDienThoai, ngayDK));
+
+            //FormSuaKH childForm2 = new FormSuaKH();
+            //childForm2.MdiParent = this.MdiParent; // Gán Form cha gốc làm MDI Parent
+            //childForm2.Show();
+            //openChildForm2(new FormSuaKH());
+
+            //if (!string.IsNullOrEmpty(txtHoTen.Text))
+            //{
+            //    int maKH = Convert.ToInt32(dgvKhachHang.SelectedRows[0].Cells["Mã Khách Hàng"].Value);
+            //    string tenKH = txtHoTen.Text;
+            //    string diaChi = txtDiaChi.Text;
+            //    string soDienThoai = txtSoDienThoai.Text;
+            //    string email = txtEmail.Text;
+            //    DateTime ngayDangKy = DateTime.Parse(dtpNgayDangKy.Value.ToString());
+
+            //    using (SqlConnection Cnn = new SqlConnection(connectionString))
+            //    {
+            //        Cnn.Open();
+            //        using (SqlCommand cmd = new SqlCommand("spKhachHang_Update", Cnn))
+            //        {
+            //            cmd.CommandType = CommandType.StoredProcedure;
+            //            cmd.Parameters.AddWithValue("@iMaKH", maKH);
+            //            cmd.Parameters.AddWithValue("@sHoTen", tenKH);
+            //            cmd.Parameters.AddWithValue("@sDiaChi", diaChi);
+            //            cmd.Parameters.AddWithValue("@sSoDienThoai", soDienThoai);
+            //            cmd.Parameters.AddWithValue("@sEmail", email);
+            //            cmd.Parameters.AddWithValue("@dNgayDangKy", ngayDangKy);
+
+            //            int rowsAffected = cmd.ExecuteNonQuery();
+            //            if (rowsAffected > 0)
+            //            {
+            //                MessageBox.Show("Sửa thông tin khách hàng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //            }
+            //            else
+            //            {
+            //                MessageBox.Show("Không thể cập nhật khách hàng!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //            }
+            //        }
+            //    }
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Vui lòng chọn một khách hàng để sửa!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //}
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -326,32 +415,47 @@ namespace GUI
                     cmd.ExecuteNonQuery();
                 }
             }
+            LoadDataKH();
             //if (checkHopLe())
             //{
             //    btnThem.Enabled = true;
             //}
 
-            MessageBox.Show("Thêm thành công");
+            //MessageBox.Show("Thêm thành công");
         }
 
-        private void findAll()
+        //17/3
+        private void LoadDataKH()
         {
-            Dictionary<string, object> param = new Dictionary<string, object>();
-            param["@sHoTen"] = txtHoTen.Text;
-            param["@sEmail"] = txtEmail.Text;
-            param["@sDiaChi"] = txtDiaChi.Text;
-            param["@sSoDienThoai"] = txtSoDienThoai.Text;
-            param["@dNgayDangKy"] = dtpNgayDangKy.Text;
-
-            try
+            using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                //dgvKhachHang.DataSource = khachHangBUS.findAll(param);
-            }
-            catch (DatabaseException ex)
-            {
-                MessageBox.Show(ex.Message);
+                conn.Open();
+                string query = "spKhachHang_Get"; // Thay TenBang bằng tên bảng của bạn
+                SqlDataAdapter da = new SqlDataAdapter(query, conn);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                dgvKhachHang.DataSource = dt;
             }
         }
+
+        //private void findAll()
+        //{
+        //    Dictionary<string, object> param = new Dictionary<string, object>();
+        //    param["@sHoTen"] = txtHoTen.Text;
+        //    param["@sEmail"] = txtEmail.Text;
+        //    param["@sDiaChi"] = txtDiaChi.Text;
+        //    param["@sSoDienThoai"] = txtSoDienThoai.Text;
+        //    param["@dNgayDangKy"] = dtpNgayDangKy.Text;
+
+        //    try
+        //    {
+        //        dgvKhachHang.DataSource = khachHangBUS.findAll(param);
+        //    }
+        //    catch (DatabaseException ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //    }
+        //}
         //private void txtHoTen_TextChanged(object sender, EventArgs e)
         //{
         //    findAll();

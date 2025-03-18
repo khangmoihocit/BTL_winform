@@ -61,7 +61,7 @@ namespace DAO.impl
 
         public DataTable getAllByTable()
         {
-            string query = "spNhanVien_Get";
+            string query = "sp_NhanVien_GET";
             using (SqlConnection sqlConnection = Connection.GetSqlConnection())
             {
                 sqlConnection.Open();

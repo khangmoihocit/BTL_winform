@@ -37,7 +37,6 @@ namespace GUI
             this.lblUsername = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.btnThongkeVaBaocao = new System.Windows.Forms.Button();
             this.btnHoaDon = new System.Windows.Forms.Button();
             this.btnQuanLySuDungNuoc = new System.Windows.Forms.Button();
             this.btnKhachHang = new System.Windows.Forms.Button();
@@ -61,7 +60,6 @@ namespace GUI
             // 
             this.panel1.BackColor = System.Drawing.Color.SkyBlue;
             this.panel1.Controls.Add(this.panel3);
-            this.panel1.Controls.Add(this.btnThongkeVaBaocao);
             this.panel1.Controls.Add(this.btnHoaDon);
             this.panel1.Controls.Add(this.btnQuanLySuDungNuoc);
             this.panel1.Controls.Add(this.btnKhachHang);
@@ -121,17 +119,6 @@ namespace GUI
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
-            // 
-            // btnThongkeVaBaocao
-            // 
-            this.btnThongkeVaBaocao.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnThongkeVaBaocao.Location = new System.Drawing.Point(0, 381);
-            this.btnThongkeVaBaocao.Name = "btnThongkeVaBaocao";
-            this.btnThongkeVaBaocao.Size = new System.Drawing.Size(216, 64);
-            this.btnThongkeVaBaocao.TabIndex = 12;
-            this.btnThongkeVaBaocao.Text = "Thống kế và báo cáo";
-            this.btnThongkeVaBaocao.UseVisualStyleBackColor = true;
-            this.btnThongkeVaBaocao.Click += new System.EventHandler(this.btnThongkeVaBaocao_Click);
             // 
             // btnHoaDon
             // 
@@ -281,7 +268,6 @@ namespace GUI
         private Button btnKhachHang;
         private Button btnNhanVien;
         private Button btnTrangChu;
-        private Button btnThongkeVaBaocao;
         private Button btnHoaDon;
         private Button btnQuanLySuDungNuoc;
         private Label lblHeader;

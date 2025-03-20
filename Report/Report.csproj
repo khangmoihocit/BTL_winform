@@ -61,12 +61,6 @@
       <DependentUpon>CrystalReport_ChiSoNuoc.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="CrystalReport_ChiSoNuoc1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CrystalReport_ChiSoNuoc.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="CrystalReport_HoaDon.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

@@ -132,25 +132,24 @@ namespace GUI
                 DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa nhân viên này?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result == DialogResult.Yes)
                 {
-                    using (SqlConnection conn = new SqlConnection(connectionString))
+                    try
                     {
-                        conn.Open();
-                        using (SqlCommand cmd = new SqlCommand("sp_NhanVien_Delete", conn))
+                        using (SqlConnection conn = new SqlConnection(connectionString))
                         {
-                            cmd.CommandType = CommandType.StoredProcedure;
-                            cmd.Parameters.AddWithValue("@iMaNV", maKH);
+                            conn.Open();
+                            using (SqlCommand cmd = new SqlCommand("sp_NhanVien_Delete", conn))
+                            {
+                                cmd.CommandType = CommandType.StoredProcedure;
+                                cmd.Parameters.AddWithValue("@iMaNV", maKH);
 
-                            int rowsAffected = cmd.ExecuteNonQuery();
-                            if (rowsAffected > 0)
-                            {
-                            //    MessageBox.Show("Xóa nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
-                            else
-                            {
-                                //MessageBox.Show("Không thể xóa nhân viên!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                int rowsAffected = cmd.ExecuteNonQuery();
                             }
                         }
+                    }catch(Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
                     }
+                    
                 }
             }
             else

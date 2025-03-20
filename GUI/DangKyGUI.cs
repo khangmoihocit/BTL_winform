@@ -40,30 +40,29 @@ namespace GUI
             return Regex.IsMatch(email, "^[a-zA-Z0-9_.]{3,20}@gmail.com$");
         }
 
-       
+
 
         private void btnDangKy_Click(object sender, EventArgs e)
         {
 
-                try
-                {
-                    TaiKhoanDTO taiKhoanDTO = new TaiKhoanDTO(txtTenTaiKhoan.Text, txtMatKhau.Text, txtEmail.Text);
-                    NhanVienDTO nhanVienDTO = cboNhanVien.SelectedItem as NhanVienDTO;
-                    taiKhoanBUS.add(taiKhoanDTO, nhanVienDTO);
-                    DialogResult result = MessageBox.Show("Tạo tài khoản thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    if (result == DialogResult.OK) this.Close();
-                }
-                catch (DatabaseException ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
+            try
+            {
+                TaiKhoanDTO taiKhoanDTO = new TaiKhoanDTO(txtTenTaiKhoan.Text, txtMatKhau.Text, txtEmail.Text);
+                NhanVienDTO nhanVienDTO = cboNhanVien.SelectedItem as NhanVienDTO;
+                taiKhoanBUS.add(taiKhoanDTO, nhanVienDTO);
+                this.Close();
+            }
+            catch (DatabaseException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
         }
 
         private void DangKyGUI_Load(object sender, EventArgs e)
         {
             List<NhanVienDTO> nhanVienDTOs = nhanVienBUS.nhanVienDTOs();
-            nhanVienDTOs.ForEach(item =>{cboNhanVien.Items.Add(item);});
+            nhanVienDTOs.ForEach(item => { cboNhanVien.Items.Add(item); });
         }
 
         private void txtTenTaiKhoan_TextChanged(object sender, EventArgs e)
@@ -100,7 +99,7 @@ namespace GUI
                 errorProvider1.SetError(txtMatKhau, "");
             }
 
-            
+
         }
 
         private void txtXacNhanMK_TextChanged(object sender, EventArgs e)

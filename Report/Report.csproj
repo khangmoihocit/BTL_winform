@@ -73,12 +73,6 @@
       <DependentUpon>CrystalReport_HoaDon.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="CrystalReport_HoaDon1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CrystalReport_HoaDon.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="CrystalReport_KhachHang1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

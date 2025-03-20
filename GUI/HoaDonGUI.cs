@@ -204,7 +204,6 @@ namespace GUI
             hoaDonGUI_Sua.ShowDialog();
             HoaDonGUI_Load(sender, e);
 
-
             // Chọn lại hàng vừa sửa
             if (selectedRowIndex >= 0 && selectedRowIndex < dgvHoaDon.Rows.Count)
             {

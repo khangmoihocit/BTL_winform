@@ -165,14 +165,9 @@ namespace GUI
             chisonuocdto.Thang = int.Parse(dgvChiSoNuoc.SelectedRows[0].Cells[6].Value.ToString());
             chisonuocdto.Nam = int.Parse(dgvChiSoNuoc.SelectedRows[0].Cells[7].Value.ToString());
 
-
-
-
             QuanLySuDungNuocGUI_Sua qlsdn_gui = new QuanLySuDungNuocGUI_Sua(chisonuocdto);
             qlsdn_gui.ShowDialog();
             QuanLySuDungNuocGUI_Load(sender, e);
-
-
 
             // Chọn lại hàng vừa sửa
             if (selectedRowIndex >= 0 && selectedRowIndex < dgvChiSoNuoc.Rows.Count)
@@ -195,6 +190,7 @@ namespace GUI
             {
                 StringBuilder filterBuilder = new StringBuilder();
 
+                //lưu các id chỉ số nước hiện có trên view
                 filterBuilder.Append("{tblChiSoNuoc.iMaChiSo} IN [");
 
                 bool hasValidData = false; // Đánh dấu nếu có dữ liệu hợp lệ
@@ -208,6 +204,7 @@ namespace GUI
                         {
                             filterBuilder.Append(", ");
                         }
+
                         filterBuilder.Append(id);
                         hasValidData = true;
                     }
@@ -256,6 +253,9 @@ namespace GUI
             
             param["@iThang"] = txtChiSoNuocThang.Text;
             param["@iNam"] = txtChiSoNuocNam.Text;
+            param["@fChiSoCu"] = txtChiSoCu.Text;
+            param["@fChiSoMoi"] = txtChiSoMoi.Text;
+
 
             if (checkBox1.Checked == true)
             {
@@ -304,12 +304,12 @@ namespace GUI
 
         private void txtChiSoCu_TextChanged(object sender, EventArgs e)
         {
-            //findAll();
+            findAll();
         }
 
         private void txtChiSoMoi_TextChanged(object sender, EventArgs e)
         {
-            //findAll();
+            findAll();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)

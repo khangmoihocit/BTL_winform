@@ -47,6 +47,7 @@ namespace GUI
                 chisonuoc.Thang = int.Parse(txtThang.Text);
                 chisonuoc.Nam = int.Parse(txtNam.Text);
                 chisonuoc.NgayGhi = DateTime.Parse(dtpNgayGhi.Value.ToString());
+
                 ChisonuocBUS.update(chisonuoc);
                 this.Close();
             }

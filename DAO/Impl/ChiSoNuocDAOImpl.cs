@@ -135,8 +135,6 @@ namespace DAO.Impl
 
                             }
                         }
-
-
                         using (SqlDataAdapter dataAdapter = new SqlDataAdapter(sqlCommand))
                         {
                             DataTable dataTable = new DataTable();
